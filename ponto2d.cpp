@@ -3,18 +3,22 @@
 #include <iostream>
 #include <cmath>
 
-using std namespace;
+using namespace std;
+
+unsigned int Ponto2D::id = 0;
 
 Ponto2D::Ponto2D()
 {
+    myId = ++id;
     x = 0.0;
     y = 0.0;
 }
 
 Ponto2D::Ponto2D(double x, double y)
 {
-    this.x = x;
-    this.y = y;
+    myId = ++id;
+    this->x = x;
+    this->y = y;
 }
 
 void Ponto2D::print()
@@ -24,7 +28,8 @@ void Ponto2D::print()
 
 double Ponto2D::distToOrig()
 {
-    return distTo(origin(0, 0));
+    Ponto2D origin(0.0, 0.0);
+    return distTo(origin);
 }
 
 double Ponto2D::distTo(Ponto2D point)
@@ -32,16 +37,21 @@ double Ponto2D::distTo(Ponto2D point)
     return sqrt(pow((x - point.x), 2.0) + pow((y - point.y), 2.0));
 }
 
-Ponto2D Ponto2D::sumOf(Ponto2D ref)
+Ponto2D& Ponto2D::sumOf(Ponto2D ref)
 {
     x += ref.x;
     y += ref.y;
 
-    return this;
+    return *this;
 }
 
-Ponto2D Ponto2D::operator=(Ponto2D ref)
+Ponto2D& Ponto2D::operator=(Ponto2D ref)
 {
     Ponto2D newPoint(x, y);
-    return newPoint(ref);
+    return newPoint.sumOf(ref);
+}
+
+unsigned int Ponto2D::getId()
+{
+    return myId;
 }

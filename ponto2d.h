@@ -1,20 +1,13 @@
 #ifndef _PONTO2D_H_
 #define _PONTO2D_H_
 
-class Ponto2DId
-{
-    private:
-        int id;
-
-    public:
-        int getId();
-};
-
-class Ponto2D: Ponto2DId
+class Ponto2D
 {
     private:
         double x;
         double y;
+	unsigned int myId;
+	static unsigned int id;
 
     public:
         Ponto2D();
@@ -23,8 +16,10 @@ class Ponto2D: Ponto2DId
         void print();
         double distToOrig();
         double distTo(Ponto2D);
-        Ponto2D sumOf(Ponto2D);
-        Ponto2D operator=(Ponto2D);
+        Ponto2D& sumOf(Ponto2D);
+        Ponto2D& operator=(Ponto2D);
+
+	unsigned int getId();
 };
 
 #endif

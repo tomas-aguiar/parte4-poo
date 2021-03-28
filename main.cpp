@@ -1,8 +1,7 @@
+#include <iostream>
 #include "ponto2d.h"
 
-#include <iostream>
-
-using std namespace;
+using namespace std;
 
 int main(int argc, char **argv)
 {
@@ -19,7 +18,7 @@ int main(int argc, char **argv)
 
     // Third point
     Ponto2D p3(2.0, 5.0);
-    cout << "Id: " << p2.getId() << endl;
+    cout << "Id: " << p3.getId() << endl;
     p3.print();
     cout << "DistToSecondPoint: " << p3.distTo(p2) << endl;
     p3.sumOf(p2);
