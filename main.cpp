@@ -29,5 +29,15 @@ int main(int argc, char **argv)
     cout << "Id: " << p4.getId() << endl;
     p4.print();
 
+    // Fifth point
+    Ponto2D p5(p4);
+    cout << "Id: " << p5.getId() << endl;
+    p5.print();
+
+    // Sixth point
+    Ponto2D p6 = p3;
+    cout << "Id: " << p6.getId() << endl;
+    p6.print();
+
     return 0;
 }

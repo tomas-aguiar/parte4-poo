@@ -21,6 +21,13 @@ Ponto2D::Ponto2D(double x, double y)
     this->y = y;
 }
 
+Ponto2D::Ponto2D(const Ponto2D &ref)
+{
+    myId = ++id;
+    x = ref.x;
+    y = ref.y;
+}
+
 void Ponto2D::print()
 {
     cout << "x: " << x << ", y: " << y << endl;
@@ -45,10 +52,9 @@ Ponto2D& Ponto2D::sumOf(Ponto2D ref)
     return *this;
 }
 
-Ponto2D& Ponto2D::operator=(Ponto2D ref)
+Ponto2D& Ponto2D::operator=(Ponto2D &ref)
 {
-    Ponto2D newPoint(x, y);
-    return newPoint.sumOf(ref);
+    return ref;
 }
 
 unsigned int Ponto2D::getId()

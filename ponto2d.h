@@ -12,12 +12,13 @@ class Ponto2D
     public:
         Ponto2D();
         Ponto2D(double, double);
+        Ponto2D(const Ponto2D&);
 
         void print();
         double distToOrig();
         double distTo(Ponto2D);
         Ponto2D& sumOf(Ponto2D);
-        Ponto2D& operator=(Ponto2D);
+        Ponto2D& operator=(Ponto2D&);
 
 	unsigned int getId();
 };
